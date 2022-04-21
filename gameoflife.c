@@ -1,7 +1,60 @@
-#include <stdio.h>
+/***************************************************************************
+ *   Copyright (C) 2022 by Miika Rinta-Korkeamäki  *
+ *   miikark@nic.fi   *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ ***************************************************************************/
 
+/*********************************************************************
+
+ 1.  NAME
+
+    Game Of Life
+
+ 2.  DESCRIPTION
+
+    Simplest evolution model by John Conway
+
+ 3.  VERSIONS
+       Original:
+         21.4.2022 / MRK
+
+       Version history:
+
+**********************************************************************/
+
+/*-------------------------------------------------------------------*
+*    HEADER FILES                                                    *
+*--------------------------------------------------------------------*/
+#include <stdio.h>
+//#include <ncurses.h>
+
+/*-------------------------------------------------------------------*
+*    GLOBAL VARIABLES AND CONSTANTS                                  *
+*--------------------------------------------------------------------*/
+/* Control flags */
+#define DEBUG 
+
+/* Global constants */
 #define Y_AXIS 9
 #define X_AXIS 9
+
+/* Global variables */
+
+/* Global structures */
 
 struct cell
 {
@@ -9,13 +62,25 @@ struct cell
     int future;
 };
 
+/*-------------------------------------------------------------------*
+*    FUNCTION PROTOTYPES                                             *
+*--------------------------------------------------------------------*/
 void init_table(struct cell board[Y_AXIS][X_AXIS]);
 void init_game(struct cell board[Y_AXIS][X_AXIS]);
 int count_neighbours(int i, int j, struct cell board[Y_AXIS][X_AXIS]);
 void calculate_game(int i, int j, struct cell board[Y_AXIS][X_AXIS]);
 
+/*********************************************************************
+*    MAIN PROGRAM                                                      *
+**********************************************************************/
+
 int main(void)
 {
+    /*initscr();
+    clear();
+
+    noecho();*/
+    
     //i = y-axis & j = x-axis
     int i, j, neigh;
 
@@ -30,13 +95,32 @@ int main(void)
         calculate_game(i, j, board);
 
         printf("\n");
+
+        //usleep(500);
+        //refresh();
     }
 
+    //getch();
+    //endwin();
+
     return 0;
-}
+} /* end of main */
 
-/*****FUNCTIONS*****/
+/*********************************************************************
+*    FUNCTIONS                                                       *
+**********************************************************************/
 
+
+/*********************************************************************
+	F U N C T I O N    D E S C R I P T I O N
+---------------------------------------------------------------------
+ NAME: void init_game(struct cell board[Y_AXIS][X_AXIS])
+ DESCRIPTION:
+	Input:
+	Output:
+  Used global variables:
+ REMARKS when using this function:
+*********************************************************************/
 void init_game(struct cell board[Y_AXIS][X_AXIS])
 {
     //starting point
@@ -49,8 +133,19 @@ void init_game(struct cell board[Y_AXIS][X_AXIS])
     board[4][4].current = 1;
 }
 
+/*********************************************************************
+	F U N C T I O N    D E S C R I P T I O N
+---------------------------------------------------------------------
+ NAME: void init_table(struct cell board[Y_AXIS][X_AXIS])
+ DESCRIPTION:
+	Input:
+	Output:
+  Used global variables:
+ REMARKS when using this function:
+*********************************************************************/
 void init_table(struct cell board[Y_AXIS][X_AXIS])
 {
+    //move(0,0);
     
     for (int i = 0; i < Y_AXIS; i++)
     {
@@ -68,12 +163,25 @@ void init_table(struct cell board[Y_AXIS][X_AXIS])
         }
         printf("\n");
     }
+    
+    //usleep(500);
+    //refresh();
 }
 
+/*********************************************************************
+	F U N C T I O N    D E S C R I P T I O N
+---------------------------------------------------------------------
+ NAME: int count_neighbours(int i, int j, struct cell board[Y_AXIS][X_AXIS])
+ DESCRIPTION:
+	Input:
+	Output:
+  Used global variables:
+ REMARKS when using this function:
+*********************************************************************/
 int count_neighbours(int i, int j, struct cell board[Y_AXIS][X_AXIS])
 {
     int neigh;
-    //i = y axis & j = x axis
+    
     //neighbour cells
     neigh = board[i - 1][j - 1].current +
             board[i - 1][j    ].current +
@@ -83,10 +191,18 @@ int count_neighbours(int i, int j, struct cell board[Y_AXIS][X_AXIS])
             board[i + 1][j - 1].current +
             board[i + 1][j    ].current +
             board[i + 1][j + 1].current;
-
-    //return neigh;
 }
 
+/*********************************************************************
+	F U N C T I O N    D E S C R I P T I O N
+---------------------------------------------------------------------
+ NAME: void calculate_game(int i, int j, struct cell board[Y_AXIS][X_AXIS])
+ DESCRIPTION:
+	Input:
+	Output:
+  Used global variables:
+ REMARKS when using this function:
+*********************************************************************/
 void calculate_game(int i, int j, struct cell board[Y_AXIS][X_AXIS])
 {
     int neigh;
