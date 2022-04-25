@@ -40,7 +40,8 @@
 *    HEADER FILES                                                    *
 *--------------------------------------------------------------------*/
 #include <stdio.h>
-//#include <ncurses.h>
+#include <ncurses.h>
+//#include <unistd.h>
 
 /*-------------------------------------------------------------------*
 *    GLOBAL VARIABLES AND CONSTANTS                                  *
@@ -76,10 +77,10 @@ void calculate_game(int i, int j, struct cell board[Y_AXIS][X_AXIS]);
 
 int main(void)
 {
-    /*initscr();
+    initscr();
     clear();
 
-    noecho();*/
+    noecho();
     
     //i = y-axis & j = x-axis
     int i, j, neigh;
@@ -92,16 +93,15 @@ int main(void)
     {
         init_table(board);
 
+        sleep(500);
+
         calculate_game(i, j, board);
 
         printf("\n");
-
-        //usleep(500);
-        //refresh();
     }
 
-    //getch();
-    //endwin();
+    getch();
+    endwin();
 
     return 0;
 } /* end of main */
@@ -145,7 +145,7 @@ void init_game(struct cell board[Y_AXIS][X_AXIS])
 *********************************************************************/
 void init_table(struct cell board[Y_AXIS][X_AXIS])
 {
-    //move(0,0);
+    move(0,0);
     
     for (int i = 0; i < Y_AXIS; i++)
     {
@@ -154,18 +154,19 @@ void init_table(struct cell board[Y_AXIS][X_AXIS])
             if (board[i][j].current == 0)
             {
                 printf(".");
+                refresh();
             }
 
             else
             {
                 printf("0");
+                refresh();
             }
         }
         printf("\n");
     }
     
-    //usleep(500);
-    //refresh();
+    
 }
 
 /*********************************************************************
@@ -231,6 +232,7 @@ void calculate_game(int i, int j, struct cell board[Y_AXIS][X_AXIS])
                 board[i][j].future = 1;
             }
         }
+    refresh();
     }
     
     for (i = 0; i < Y_AXIS; i++)
@@ -240,4 +242,5 @@ void calculate_game(int i, int j, struct cell board[Y_AXIS][X_AXIS])
             board[i][j].current = board[i][j].future;
         }
     }
+    refresh();
 }
