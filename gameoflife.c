@@ -167,8 +167,6 @@ void init_table(struct cell board[Y_AXIS][X_AXIS])
         }
         printw("\n");
     }
-    
-    
 }
 
 /*********************************************************************
@@ -234,6 +232,7 @@ void calculate_game(int i, int j, struct cell board[Y_AXIS][X_AXIS])
                 board[i][j].future = 1;
             }
         }
+    
     refresh();
     }
     
@@ -244,5 +243,6 @@ void calculate_game(int i, int j, struct cell board[Y_AXIS][X_AXIS])
             board[i][j].current = board[i][j].future;
         }
     }
+    
     refresh();
 }
