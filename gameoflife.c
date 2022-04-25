@@ -91,6 +91,7 @@ int main(void)
 
     init_game(board);
 
+    //refresh table 30 times
     for (i = 0; i < 30; i++)
     {
         init_table(board);
