@@ -1,5 +1,5 @@
-#Game Of Life
+# Game Of Life
 
-#Description
+# Description
 
 This program emulates classic evolution theory model from John Conway. Program has been made with ncurses library.
