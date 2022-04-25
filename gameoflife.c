@@ -41,7 +41,9 @@
 *--------------------------------------------------------------------*/
 #include <stdio.h>
 #include <ncurses.h>
-//#include <unistd.h>
+#include <stdlib.h>
+#include <time.h>
+#include <unistd.h>
 
 /*-------------------------------------------------------------------*
 *    GLOBAL VARIABLES AND CONSTANTS                                  *
@@ -89,15 +91,15 @@ int main(void)
 
     init_game(board);
 
-    for (i = 0; i < 10; i++)
+    for (i = 0; i < 30; i++)
     {
         init_table(board);
 
-        sleep(500);
+        sleep(1);
 
         calculate_game(i, j, board);
 
-        printf("\n");
+        printw("\n");
     }
 
     getch();
@@ -153,17 +155,17 @@ void init_table(struct cell board[Y_AXIS][X_AXIS])
         {
             if (board[i][j].current == 0)
             {
-                printf(".");
+                printw(".");
                 refresh();
             }
 
             else
             {
-                printf("0");
+                printw("0");
                 refresh();
             }
         }
-        printf("\n");
+        printw("\n");
     }
     
     
