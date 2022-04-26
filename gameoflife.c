@@ -184,7 +184,7 @@ int count_neighbours(int i, int j, struct cell board[Y_AXIS][X_AXIS])
 {
     int neigh;
     
-    //neighbour cells
+    //initializes neighbour cells
     neigh = board[i - 1][j - 1].current +
             board[i - 1][j    ].current +
             board[i - 1][j + 1].current +
