@@ -30,7 +30,7 @@
 
  3.  VERSIONS
        Original:
-         21.4.2022 / MRK
+         26.4.2022 / MRK
 
        Version history:
 
@@ -85,7 +85,7 @@ int main(void)
     noecho();
     
     //i = y-axis & j = x-axis
-    int i, j, neigh;
+    int i, j;
 
     struct cell board[Y_AXIS][X_AXIS] = {0, 0};
 
@@ -118,9 +118,9 @@ int main(void)
 	F U N C T I O N    D E S C R I P T I O N
 ---------------------------------------------------------------------
  NAME: void init_game(struct cell board[Y_AXIS][X_AXIS])
- DESCRIPTION:
-	Input:
-	Output:
+ DESCRIPTION: sets the starting population the grid
+	Input: struct cell board[Y_AXIS][X_AXIS]
+	Output: none
   Used global variables:
  REMARKS when using this function:
 *********************************************************************/
@@ -140,9 +140,9 @@ void init_game(struct cell board[Y_AXIS][X_AXIS])
 	F U N C T I O N    D E S C R I P T I O N
 ---------------------------------------------------------------------
  NAME: void init_table(struct cell board[Y_AXIS][X_AXIS])
- DESCRIPTION:
-	Input:
-	Output:
+ DESCRIPTION: Prints the defined starting population to the screen
+	Input: struct cell board[Y_AXIS][X_AXIS]
+	Output: none
   Used global variables:
  REMARKS when using this function:
 *********************************************************************/
@@ -174,9 +174,9 @@ void init_table(struct cell board[Y_AXIS][X_AXIS])
 	F U N C T I O N    D E S C R I P T I O N
 ---------------------------------------------------------------------
  NAME: int count_neighbours(int i, int j, struct cell board[Y_AXIS][X_AXIS])
- DESCRIPTION:
-	Input:
-	Output:
+ DESCRIPTION: Initializes cell's neighbours positions
+	Input: i, j, struct cell board[Y_AXIS][X_AXIS]
+	Output: count_neighbours() for calculate_game() - function
   Used global variables:
  REMARKS when using this function:
 *********************************************************************/
@@ -199,9 +199,9 @@ int count_neighbours(int i, int j, struct cell board[Y_AXIS][X_AXIS])
 	F U N C T I O N    D E S C R I P T I O N
 ---------------------------------------------------------------------
  NAME: void calculate_game(int i, int j, struct cell board[Y_AXIS][X_AXIS])
- DESCRIPTION:
-	Input:
-	Output:
+ DESCRIPTION: Calculates the rules for population surviving or dying 
+	Input: i, j, struct cell board[Y_AXIS][X_AXIS]
+	Output: none
   Used global variables:
  REMARKS when using this function:
 *********************************************************************/
