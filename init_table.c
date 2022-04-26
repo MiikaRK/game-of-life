@@ -4,9 +4,9 @@
 	F U N C T I O N    D E S C R I P T I O N
 ---------------------------------------------------------------------
  NAME: void init_table(struct cell board[Y_AXIS][X_AXIS])
- DESCRIPTION:
-	Input:
-	Output:
+ DESCRIPTION: Prints the defined starting population to the screen
+	Input: struct cell board[Y_AXIS][X_AXIS]
+	Output: none
   Used global variables:
  REMARKS when using this function:
 *********************************************************************/

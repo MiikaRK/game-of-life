@@ -4,9 +4,9 @@
 	F U N C T I O N    D E S C R I P T I O N
 ---------------------------------------------------------------------
  NAME: void calculate_game(int i, int j, struct cell board[Y_AXIS][X_AXIS])
- DESCRIPTION:
-	Input:
-	Output:
+ DESCRIPTION: Calculates the rules for population surviving or dying 
+	Input: i, j, struct cell board[Y_AXIS][X_AXIS]
+	Output: none
   Used global variables:
  REMARKS when using this function:
 *********************************************************************/
