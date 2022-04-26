@@ -11,7 +11,7 @@ int main(void)
 
     noecho();
     
-    //i = y-axis & j = x-axis
+    /*i = y-axis & j = x-axis*/
     int i, j, neigh;
 
     struct cell board[Y_AXIS][X_AXIS] = {0, 0};
