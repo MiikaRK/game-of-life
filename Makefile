@@ -3,7 +3,7 @@
 CC=gcc
 
 gameoflife.exe: main.o init_game.o init_table.o count_neighbours.o calculate_game.o
-	$(CC) main.o init_game.o init_table.o count_neighbours.o calculate_game.o -o gameoflife.exe -lncursesw -Wall -pedantic 
+	$(CC) main.o init_game.o init_table.o count_neighbours.o calculate_game.o -o gameoflife.exe -lncursesw -Wall -ansi -pedantic 
 
 main.o: main.c gol.h  
 	$(CC) -c main.c -Wall -ansi -pedantic -lncursesw
