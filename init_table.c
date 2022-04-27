@@ -12,11 +12,13 @@
 *********************************************************************/
 void init_table(struct cell board[Y_AXIS][X_AXIS])
 {
+    int i, j;
+    
     move(0,0);
     
-    for (int i = 0; i < Y_AXIS; i++)
+    for (i = 0; i < Y_AXIS; i++)
     {
-        for (int j = 0; j < X_AXIS; j++)
+        for (j = 0; j < X_AXIS; j++)
         {
             if (board[i][j].current == 0)
             {
