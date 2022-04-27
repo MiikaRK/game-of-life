@@ -12,7 +12,7 @@
 *********************************************************************/
 void init_game(struct cell board[Y_AXIS][X_AXIS])
 {
-    //starting point
+    /*starting point*/
     board[1][2].current = 1;
     board[2][2].current = 1;
     board[3][0].current = 1;

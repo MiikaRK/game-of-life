@@ -20,7 +20,7 @@ void calculate_game(int i, int j, struct cell board[Y_AXIS][X_AXIS])
         {
             neigh = count_neighbours(i, j, board);
 
-            //rules for cells
+            /*rules for cells*/
             if (board[i][j].current == 1 && neigh < 2)
             {
                 board[i][j].future = 0;
