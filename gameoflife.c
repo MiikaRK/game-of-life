@@ -81,16 +81,16 @@ void calculate_game(int i, int j, struct cell board[Y_AXIS][X_AXIS]);
 
 int main(void)
 {
-    /*i = y-axis & j = x-axis*/
+    // i = y-axis & j = x-axis
     int i, j, num;
 
-    /*start ncurses*/
+    // start ncurses
     initscr();
     clear();
 
     noecho();
 
-    /*asks user input how many rounds program do*/
+    // asks user input how many rounds program do
     printw("Insert number of rounds: ");
     scanw("%d", &num);
 
@@ -131,7 +131,8 @@ int main(void)
 *********************************************************************/
 void init_game(struct cell board[Y_AXIS][X_AXIS])
 {
-    /*starting point*/
+    // HARDCODED STARTING POSITION (alternative)
+    
     /*board[1][2].current = 1;
     board[2][2].current = 1;
     board[3][0].current = 1;
