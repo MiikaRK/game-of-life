@@ -15,5 +15,5 @@ jobs:
       - name: make
         run: make
 
-      - name: make test
-        run: make test  # Adjust this to the correct test target in your Makefile
+      - name: Run Tests
+        run: ./gameoflife.exe --run-tests
